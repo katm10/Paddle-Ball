@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Paddle Ball Game</title>
+    <script src="processing.min.js"></script>
+    <script type="application/processing" data-processing-target="demoscreen">
+        xPos = 0;
+        yPos = 300;
+        xchange = 5;
+        ychange = 4;
+        void draw(){
+            size(600,600);
+            background(180,90,60);
+                if(yPos <= 600){
+                    fill(mouseY, yPos, xPos);
+                    rect(mouseX, 530, 100, 40);
+                    fill(xPos, yPos, mouseX);
+                    ellipse(xPos,yPos,30,30);
+                    xPos = xPos + xchange;
+                    yPos = yPos + ychange;
+                    if(xPos > 600 || xPos < 1){
+                        xchange = -xchange;
+                    }
+                    if(yPos < 0){
+                        ychange = -ychange;
+                    }
+                    if(yPos > 515 && xPos > (mouseX) && xPos < (mouseX + 100)){
+                        ychange = -ychange;
+                    }
+                }else{
+                textAlign(CENTER,CENTER);
+                text("GAME OVER",width/2,height/2);
+                }
+        }
+    </script>
+</head>
+<body>
+    <canvas id="demoscreen"></canvas>
+</body>
+</html>

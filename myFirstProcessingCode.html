@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+   <script src="processing.min.js"></script>
+    <script type="application/processing" data-processing-target="demoscreen">
+        size(2000,1800);
+        background(175 ,238,230);
+        PImage b;
+        void setup(){
+            b = loadImage("facebook1.jpg");
+            size(620,620);
+        }
+        void draw(){
+        var randomWidth = random(1,35);
+            ellipse(mouseX +random(-105,105), mouseY+random(-105,105), randomWidth, randomWidth);
+            fill(random(0,255),random(0,255),random(0,255));
+            noStroke();
+        }
+    </script>
+</head>
+<body>
+    <canvas id="demoscreen"></canvas>
+</body>
+</html>

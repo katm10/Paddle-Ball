@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="processing.min.js"></script>
+    <script type="application/processing" data-processing-target="demoscreen">
+        size(2000,1800);
+        background(175 ,238,230);
+        var xpoint = 300;
+        var ypoint = 300;
+        void onClick(){
+            this.xpoint = mouseX;
+            this.ypoint = mouseY;
+        }
+        void draw(){
+            var randSize = random(10, 35);
+            var transparency = random(0,255);
+            fill(random(0,255),random(0,255),random(0,255),transparency);
+            ellipse(mouseX, mouseY, randSize,randSize);
+            noStroke();
+            stroke(random(0,255),random(0,255),random(0,255),transparency);
+            strokeWeight(random(0,2));
+            line(this.xpoint,this.ypoint, mouseX, mouseY);
+            
+        }
+       </script>
+</head>
+<body>
+    <canvas id="demoscreen" onclick="onClick()"></canvas>
+</body>
+</html>
